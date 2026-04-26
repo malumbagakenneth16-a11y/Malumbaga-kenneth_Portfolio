@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kenneth Bryan Malumbaga — Web & Backend Developer based in Davao City, Philippines.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Kenneth Bryan Malumbaga - Portfolio</title>
+    <title>Kenneth Bryan Malumbaga — Portfolio</title>
 </head>
 <body>
-    <header class="header">
+    <!-- ═══════════════════ HEADER ═══════════════════ -->
+    <header class="header" id="header">
         <a href="#home" class="brand">
-            <img src="assets/logo.png" alt="Kenneth logo" class="brand-mark">
-            <span class="brand-name">Kenneth Bryan Malumbaga</span>
+            <img src="logo.png" alt="Kenneth logo" class="brand-mark">
+            <span class="brand-name">Kenneth<span class="brand-name-accent"> Bryan</span></span>
         </a>
 
         <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle navigation" aria-controls="site-nav" aria-expanded="false">
@@ -22,46 +24,82 @@
         </button>
 
         <nav class="navbar" id="site-nav">
-            <a href="#home" class="active">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
+            <a href="#home" class="nav-link active" data-section="home">Home</a>
+            <a href="#about" class="nav-link" data-section="about">About</a>
+            <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+            <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+            <a href="#contact" class="nav-link" data-section="contact">Contact</a>
         </nav>
     </header>
 
     <main>
+        <!-- ═══════════════════ HOME ═══════════════════ -->
         <section class="home" id="home">
-            <div class="home-visual">
+            <div class="home-bg-orb home-bg-orb--1"></div>
+            <div class="home-bg-orb home-bg-orb--2"></div>
+
+            <div class="home-visual reveal-left">
                 <div class="portrait-shell">
+                    <div class="portrait-ring"></div>
                     <div class="home-img">
-                        <img src="assets/profile.png" alt="Portrait of Kenneth Bryan Malumbaga">
+                        <img src="profile.png" alt="Portrait of Kenneth Bryan Malumbaga">
+                    </div>
+                    <div class="portrait-badge">
+                        <i class="fa-solid fa-code"></i>
+                        <span>Available for Work</span>
                     </div>
                 </div>
             </div>
 
-            <div class="home-content">
-                <p class="eyebrow">Hello,</p>
-                <h1>Kenneth Bryan Malumbaga</h1>
-                <h2 class="role-line">And I'm a <span class="typed-text">Web Developer</span></h2>
+            <div class="home-content reveal-right">
+                <p class="eyebrow"><span class="eyebrow-dot"></span>Hello, I'm</p>
+                <h1>Kenneth Bryan<br><span class="h1-accent">Malumbaga</span></h1>
+                <h2 class="role-line">I'm a <span class="typed-text"></span></h2>
                 <p class="intro">
-                    I am a reliable backend and web developer who enjoys building efficient systems and functional websites.
-                    I focus on solving problems and improving my skills. 
-                    I am committed to delivering quality work and always willing to learn and grow in the tech industry.
+                    A reliable backend and web developer who enjoys building efficient systems and 
+                    functional websites. I focus on solving real problems and delivering quality work, 
+                    committed to continuous growth in the tech industry.
                 </p>
 
                 <div class="social-media">
-                    <a href="https://www.linkedin.com/in/kenneth-bryan-malumbaga-b922a8402/" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="https://github.com/Malumbagakennethbryan" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://www.facebook.com/bryanmalumbaga" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.linkedin.com/in/kenneth-bryan-malumbaga-b922a8402/" aria-label="LinkedIn" target="_blank" rel="noopener">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/KennethMalumbaga" aria-label="GitHub" target="_blank" rel="noopener">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://www.facebook.com/bryanmalumbaga" aria-label="Facebook" target="_blank" rel="noopener">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
                 </div>
 
-                <a href="#contact" class="btn">Contact Me</a>
+                <div class="home-cta">
+                    <a href="#contact" class="btn btn--primary">
+                        <i class="fa-solid fa-paper-plane"></i> Contact Me
+                    </a>
+                    <a href="#projects" class="btn btn--ghost">
+                        View Projects <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
         </section>
 
+        <!-- ═══════════════════ ABOUT ═══════════════════ -->
         <section class="about" id="about">
-            <div class="about-content">
+            <div class="about-visual reveal-left">
+                <div class="about-portrait-shell">
+                    <div class="about-img">
+                        <img src="profile.png" alt="About Kenneth Bryan Malumbaga">
+                    </div>
+                    <!-- Experience strip -->
+                    <div class="about-stat-card">
+                        <span class="stat-num">4+</span>
+                        <span class="stat-label">Projects Built</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-content reveal-right">
                 <p class="section-tag">Get to Know Me</p>
                 <h2 class="section-title">About <span>Me</span></h2>
                 <h3 class="about-role">I'm a <span>Web Developer</span></h3>
@@ -70,157 +108,187 @@
                     at Davao del Norte State College. I enjoy building modern websites, learning new
                     technologies, and creating digital experiences that are both useful and visually clean.
                 </p>
-                <button class="btn about-btn" id="open-about-modal" type="button">Read More</button>
-            </div>
 
-            <div class="about-visual">
-                <div class="about-portrait-shell">
-                    <div class="about-img">
-                        <img src="assets/profile.png" alt="About Kenneth Bryan Malumbaga">
+                <div class="about-meta">
+                    <div class="about-meta-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Davao City, Philippines</span>
+                    </div>
+                    <div class="about-meta-item">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>BS Information Technology</span>
+                    </div>
+                    <div class="about-meta-item">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <span>Open to Opportunities</span>
                     </div>
                 </div>
+
+                <button class="btn btn--primary about-btn" id="open-about-modal" type="button">
+                    Read More <i class="fa-solid fa-arrow-right"></i>
+                </button>
             </div>
         </section>
 
+        <!-- ═══════════════════ SKILLS ═══════════════════ -->
         <section class="skills" id="skills">
-            <div class="skills-heading">
+            <div class="skills-heading reveal-up">
                 <p class="section-tag">What I Do</p>
                 <h2 class="section-title">My <span>Skills</span></h2>
                 <p class="skills-intro">
-                    My current skill set is centered on creating functional websites, developing backend
-                    logic, and continuously improving through hands-on learning and real project practice.
+                    My skill set centers on building functional websites, developing backend logic, 
+                    and continuous learning through hands-on projects.
                 </p>
+
                 <div class="skills-stack">
                     <span class="stack-label">Technologies I Use</span>
                     <div class="stack-items">
-                        <span>PHP</span>
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                        <span>MySQL</span>
+                        <span class="tech-pill"><i class="fa-brands fa-php"></i> PHP</span>
+                        <span class="tech-pill"><i class="fa-brands fa-html5"></i> HTML</span>
+                        <span class="tech-pill"><i class="fa-brands fa-css3-alt"></i> CSS</span>
+                        <span class="tech-pill"><i class="fa-brands fa-js"></i> JavaScript</span>
+                        <span class="tech-pill"><i class="fa-solid fa-database"></i> MySQL</span>
                     </div>
                 </div>
             </div>
 
             <div class="skills-grid">
-                <article class="skill-card">
+                <article class="skill-card reveal-up" style="--delay: 0s">
                     <div class="skill-icon">
                         <i class="fa-solid fa-code"></i>
                     </div>
                     <h3>Web Development</h3>
                     <p>
-                        I build responsive and clean website interfaces using HTML, CSS, and JavaScript,
-                        with a strong focus on layout, usability, and modern front-end presentation.
+                        Building responsive and clean website interfaces using HTML, CSS, and JavaScript,
+                        with focus on layout, usability, and modern front-end presentation.
                     </p>
                 </article>
 
-                <article class="skill-card">
+                <article class="skill-card reveal-up" style="--delay: 0.1s">
                     <div class="skill-icon">
                         <i class="fa-solid fa-server"></i>
                     </div>
                     <h3>Backend Development</h3>
                     <p>
-                        I work on backend structure and logic to support web applications, and I also use
-                        MySQL for storing and organizing data in a more structured way.
+                        Structuring backend logic to support web applications using PHP, and organizing 
+                        data efficiently with MySQL for structured, reliable storage.
                     </p>
                 </article>
 
-                <article class="skill-card">
+                <article class="skill-card reveal-up" style="--delay: 0.2s">
                     <div class="skill-icon">
                         <i class="fa-solid fa-gear"></i>
                     </div>
                     <h3>Web Automation</h3>
                     <p>
-                        I am just starting to learn web automation, and I still need to deepen my knowledge
-                        in this area through more practice, study, and project experience. I also want to
-                        try using n8n as part of this learning journey.
+                        Actively learning web automation and exploring tools like n8n to streamline 
+                        workflows — building knowledge through study and real project practice.
                     </p>
                 </article>
             </div>
         </section>
 
+        <!-- ═══════════════════ PROJECTS ═══════════════════ -->
         <section class="projects" id="projects">
-            <div class="projects-heading">
+            <div class="projects-heading reveal-up">
                 <p class="section-tag">What I Built</p>
                 <h2 class="section-title">My <span>Projects</span></h2>
                 <p class="projects-intro">
-                    These are some of the systems I have worked on, including school projects and my
-                    current internship project as a developer.
+                    Systems I've built — from school projects to my current internship — showcasing 
+                    my growth as a developer.
                 </p>
             </div>
 
             <div class="projects-grid">
-                <article class="project-card">
+                <article class="project-card reveal-up" style="--delay: 0s">
                     <button
                         class="project-open"
                         type="button"
                         data-project-type="School Project"
                         data-project-title="Brunch Food Order System"
-                        data-project-image="assets/1.png"
+                        data-project-image="1.png"
                         data-project-alt="Brunch Food Order System preview"
-                        data-project-description="A food ordering system project focused on product browsing, ordering flow, and a cleaner restaurant-style interface experience."
+                        data-project-description="A food ordering system focused on product browsing, ordering flow, and a clean restaurant-style interface. Built with a strong emphasis on usability and visual presentation."
                     >
                         <div class="project-image-wrap">
-                            <img src="assets/1.png" alt="Brunch Food Order System preview" class="project-image">
+                            <img src="1.png" alt="Brunch Food Order System preview" class="project-image">
+                            <div class="project-overlay">
+                                <span class="project-overlay-btn"><i class="fa-solid fa-eye"></i> View Details</span>
+                            </div>
                         </div>
                         <div class="project-title-wrap">
+                            <span class="project-type-badge">School Project</span>
                             <h3>Brunch Food Order System</h3>
                         </div>
                     </button>
                 </article>
 
-                <article class="project-card">
+                <article class="project-card reveal-up" style="--delay: 0.1s">
                     <button
                         class="project-open"
                         type="button"
                         data-project-type="School Project"
                         data-project-title="BookSphere Bookstore Management System"
-                        data-project-image="assets/2.png"
+                        data-project-image="2.png"
                         data-project-alt="BookSphere Bookstore Management System preview"
-                        data-project-description="A bookstore management system designed to organize book-related records, user access, and store operations in one system."
+                        data-project-description="A bookstore management system designed to organize book records, manage user access, and streamline store operations in one unified platform."
                     >
                         <div class="project-image-wrap">
-                            <img src="assets/2.png" alt="BookSphere Bookstore Management System preview" class="project-image">
+                            <img src="2.png" alt="BookSphere Bookstore Management System preview" class="project-image">
+                            <div class="project-overlay">
+                                <span class="project-overlay-btn"><i class="fa-solid fa-eye"></i> View Details</span>
+                            </div>
                         </div>
                         <div class="project-title-wrap">
+                            <span class="project-type-badge">School Project</span>
                             <h3>BookSphere Bookstore Management System</h3>
                         </div>
                     </button>
                 </article>
 
-                <article class="project-card">
+                <article class="project-card reveal-up" style="--delay: 0.2s">
                     <button
                         class="project-open"
                         type="button"
                         data-project-type="School Project"
                         data-project-title="Panabo Fitness Gym System"
-                        data-project-image="assets/3.png"
+                        data-project-image="3.png"
                         data-project-alt="Panabo Fitness Gym System preview"
-                        data-project-description="A gym management system project built to help manage customer-related data, attendance monitoring, and service information."
+                        data-project-description="A gym management system to manage customer data, track attendance, and display service information — built for a local gym in Panabo City."
                     >
                         <div class="project-image-wrap">
-                            <img src="assets/3.png" alt="Panabo Fitness Gym System preview" class="project-image">
+                            <img src="3.png" alt="Panabo Fitness Gym System preview" class="project-image">
+                            <div class="project-overlay">
+                                <span class="project-overlay-btn"><i class="fa-solid fa-eye"></i> View Details</span>
+                            </div>
                         </div>
                         <div class="project-title-wrap">
+                            <span class="project-type-badge">School Project</span>
                             <h3>Panabo Fitness Gym System</h3>
                         </div>
                     </button>
                 </article>
 
-                <article class="project-card featured-project">
+                <article class="project-card featured-project reveal-up" style="--delay: 0.3s">
                     <button
                         class="project-open"
                         type="button"
-                        data-project-type="Current Internship Project"
+                        data-project-type="Internship Project"
                         data-project-title="TaskFlow Task Management System"
-                        data-project-image="assets/4.png"
+                        data-project-image="4.png"
                         data-project-alt="TaskFlow Task Management System preview"
-                        data-project-description="My current internship project as a developer, focused on task organization, collaboration flow, and a more efficient team management experience."
+                        data-project-description="My current internship project — a task management system focused on team collaboration, task organization, and efficient workflow management. Built with a modern dashboard interface."
                     >
                         <div class="project-image-wrap">
-                            <img src="assets/4.png" alt="TaskFlow Task Management System preview" class="project-image">
+                            <img src="4.png" alt="TaskFlow Task Management System preview" class="project-image">
+                            <div class="project-overlay">
+                                <span class="project-overlay-btn"><i class="fa-solid fa-eye"></i> View Details</span>
+                            </div>
                         </div>
                         <div class="project-title-wrap">
+                            <span class="project-type-badge project-type-badge--featured">
+                                <i class="fa-solid fa-star"></i> Internship Project
+                            </span>
                             <h3>TaskFlow Task Management System</h3>
                         </div>
                     </button>
@@ -228,57 +296,110 @@
             </div>
         </section>
 
+        <!-- ═══════════════════ CONTACT ═══════════════════ -->
         <section class="contact" id="contact">
-            <div class="contact-heading">
+            <div class="contact-heading reveal-up">
                 <p class="section-tag">Let's Connect</p>
                 <h2 class="section-title">Contact <span>Me</span></h2>
                 <p class="contact-intro">
-                    Have a project, internship opportunity, or collaboration in mind? Send me a message
-                    and I will be glad to connect with you.
+                    Have a project, internship opportunity, or collaboration in mind? 
+                    Send me a message and I'll be happy to connect.
                 </p>
             </div>
 
-            <form class="contact-form" id="contact-form">
-                <div class="contact-grid">
-                    <label class="contact-field">
-                        <span>Full Name</span>
-                        <input type="text" name="full_name" placeholder="Full Name" required>
-                    </label>
-
-                    <label class="contact-field">
-                        <span>Email Address</span>
-                        <input type="email" name="email" placeholder="Email Address" required>
-                    </label>
-
-                    <label class="contact-field">
-                        <span>Phone Number</span>
-                        <input type="text" name="phone" placeholder="Phone Number">
-                    </label>
-
-                    <label class="contact-field">
-                        <span>Email Subject</span>
-                        <input type="text" name="subject" placeholder="Email Subject" required>
-                    </label>
+            <div class="contact-wrapper reveal-up">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <div class="contact-info-items">
+                        <a class="contact-info-item" href="mailto:malumbagakenneth16@gmail.com">
+                            <div class="contact-info-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div>
+                                <span class="contact-info-label">Email</span>
+                                <span class="contact-info-value">malumbagakenneth16@gmail.com</span>
+                            </div>
+                        </a>
+                        <a class="contact-info-item" href="https://www.linkedin.com/in/kenneth-bryan-malumbaga-b922a8402/" target="_blank" rel="noopener">
+                            <div class="contact-info-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+                            <div>
+                                <span class="contact-info-label">LinkedIn</span>
+                                <span class="contact-info-value">kenneth-bryan-malumbaga</span>
+                            </div>
+                        </a>
+                        <a class="contact-info-item" href="https://github.com/KennethMalumbaga" target="_blank" rel="noopener">
+                            <div class="contact-info-icon"><i class="fa-brands fa-github"></i></div>
+                            <div>
+                                <span class="contact-info-label">GitHub</span>
+                                <span class="contact-info-value">KennethMalumbaga</span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
 
-                <label class="contact-field contact-field-full">
-                    <span>Your Message</span>
-                    <textarea name="message" rows="8" placeholder="Your Message" required></textarea>
-                </label>
+                <form class="contact-form" id="contact-form">
+                    <div class="contact-grid">
+                        <label class="contact-field">
+                            <span>Full Name</span>
+                            <input type="text" name="full_name" placeholder="Your full name" required>
+                        </label>
 
-                <div class="contact-actions">
-                    <button class="btn" type="submit">Send Message</button>
-                    <p class="contact-note">
-                        This will open a message addressed to
-                        <span>malumbagakenneth16@gmail.com</span>.
-                    </p>
-                </div>
+                        <label class="contact-field">
+                            <span>Email Address</span>
+                            <input type="email" name="email" placeholder="your@email.com" required>
+                        </label>
 
-                <p class="contact-status" id="contact-status" aria-live="polite"></p>
-            </form>
+                        <label class="contact-field">
+                            <span>Phone Number <em>(optional)</em></span>
+                            <input type="text" name="phone" placeholder="+63 900 000 0000">
+                        </label>
+
+                        <label class="contact-field">
+                            <span>Subject</span>
+                            <input type="text" name="subject" placeholder="What's this about?" required>
+                        </label>
+                    </div>
+
+                    <label class="contact-field contact-field-full">
+                        <span>Your Message</span>
+                        <textarea name="message" rows="7" placeholder="Tell me about your project or opportunity..." required></textarea>
+                    </label>
+
+                    <div class="contact-actions">
+                        <button class="btn btn--primary" type="submit">
+                            <i class="fa-solid fa-paper-plane"></i> Send Message
+                        </button>
+                        <p class="contact-note">
+                            Opens your email client addressed to <span>malumbagakenneth16@gmail.com</span>
+                        </p>
+                    </div>
+
+                    <p class="contact-status" id="contact-status" aria-live="polite"></p>
+                </form>
+            </div>
         </section>
     </main>
 
+    <!-- ═══════════════════ FOOTER ═══════════════════ -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <a href="#home" class="footer-brand">
+                <img src="logo.png" alt="Kenneth logo" class="brand-mark">
+                <span>Kenneth Bryan Malumbaga</span>
+            </a>
+            <p class="footer-copy">© 2025 Kenneth Bryan Malumbaga. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/kenneth-bryan-malumbaga-b922a8402/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://github.com/KennethMalumbaga" aria-label="GitHub" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.facebook.com/bryanmalumbaga" aria-label="Facebook" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ═══════════════════ SCROLL TO TOP ═══════════════════ -->
+    <button class="scroll-top" id="scroll-top" aria-label="Scroll to top" type="button">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <!-- ═══════════════════ ABOUT MODAL ═══════════════════ -->
     <div class="modal-backdrop" id="about-modal" aria-hidden="true">
         <div class="info-modal" role="dialog" aria-modal="true" aria-labelledby="about-modal-title">
             <button class="modal-close" id="close-about-modal" type="button" aria-label="Close about details">
@@ -288,37 +409,43 @@
             <p class="modal-kicker">More About Me</p>
             <h2 class="modal-title" id="about-modal-title">Kenneth Bryan Malumbaga</h2>
             <p class="modal-summary">
-                A web developer with a growing foundation in backend development, focused on building
+                A web developer with a growing foundation in backend development, building 
                 practical, responsive, and user-friendly digital experiences.
             </p>
 
             <div class="modal-grid">
                 <article class="modal-card">
+                    <div class="modal-card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
                     <h3>Education</h3>
                     <p>Bachelor of Science in Information Technology</p>
                     <p>Davao del Norte State College</p>
                 </article>
 
                 <article class="modal-card">
+                    <div class="modal-card-icon"><i class="fa-solid fa-cake-candles"></i></div>
                     <h3>Age</h3>
                     <p>22 years old</p>
                     <p>Open to continuous learning and growth in tech.</p>
                 </article>
 
                 <article class="modal-card">
+                    <div class="modal-card-icon"><i class="fa-solid fa-gamepad"></i></div>
                     <h3>Hobbies</h3>
                     <p>Watching anime</p>
                     <p>Playing online games</p>
                 </article>
 
                 <article class="modal-card">
-                    <h3>Address</h3>
-                    <p>Ilang, Davao City, Davao Del Sur, Philippines</p>
+                    <div class="modal-card-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <h3>Location</h3>
+                    <p>Ilang, Davao City</p>
+                    <p>Davao Del Sur, Philippines</p>
                 </article>
             </div>
         </div>
     </div>
 
+    <!-- ═══════════════════ PROJECT MODAL ═══════════════════ -->
     <div class="modal-backdrop" id="project-modal" aria-hidden="true">
         <div class="info-modal project-info-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
             <button class="modal-close" id="close-project-modal" type="button" aria-label="Close project details">
@@ -326,7 +453,7 @@
             </button>
 
             <div class="project-modal-media">
-                <img src="assets/1.png" alt="Project preview" id="project-modal-image" class="project-modal-image">
+                <img src="1.png" alt="Project preview" id="project-modal-image" class="project-modal-image">
             </div>
 
             <div class="project-modal-body">
@@ -341,5 +468,4 @@
 
     <script src="script.js"></script>
 </body>
-
 </html>
