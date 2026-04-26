@@ -1,33 +1,26 @@
-/* ═══════════════════════════════════════
-   ELEMENT REFERENCES
-═══════════════════════════════════════ */
-const menuToggle       = document.querySelector("#menu-toggle");
-const siteNav          = document.querySelector("#site-nav");
-const navLinks         = document.querySelectorAll(".navbar a");
-const typedText        = document.querySelector(".typed-text");
-const aboutModal       = document.querySelector("#about-modal");
-const openAboutModal   = document.querySelector("#open-about-modal");
-const closeAboutModal  = document.querySelector("#close-about-modal");
-const projectModal     = document.querySelector("#project-modal");
-const closeProjectBtn  = document.querySelector("#close-project-modal");
-const projectButtons   = document.querySelectorAll(".project-open");
+const menuToggle = document.querySelector("#menu-toggle");
+const siteNav = document.querySelector("#site-nav");
+const navLinks = document.querySelectorAll(".navbar a");
+const typedText = document.querySelector(".typed-text");
+const aboutModal = document.querySelector("#about-modal");
+const openAboutModal = document.querySelector("#open-about-modal");
+const closeAboutModal = document.querySelector("#close-about-modal");
+const projectModal = document.querySelector("#project-modal");
+const closeProjectModal = document.querySelector("#close-project-modal");
+const projectButtons = document.querySelectorAll(".project-open");
 const projectModalType = document.querySelector("#project-modal-type");
-const projectModalTitle= document.querySelector("#project-modal-title");
-const projectModalImage= document.querySelector("#project-modal-image");
-const projectModalDesc = document.querySelector("#project-modal-description");
-const contactForm      = document.querySelector("#contact-form");
-const contactStatus    = document.querySelector("#contact-status");
-const header           = document.querySelector("#header");
-const scrollTopBtn     = document.querySelector("#scroll-top");
+const projectModalTitle = document.querySelector("#project-modal-title");
+const projectModalImage = document.querySelector("#project-modal-image");
+const projectModalDescription = document.querySelector("#project-modal-description");
+const contactForm = document.querySelector("#contact-form");
+const contactStatus = document.querySelector("#contact-status");
 
-/* ═══════════════════════════════════════
-   MOBILE NAV
-═══════════════════════════════════════ */
 if (menuToggle && siteNav) {
     menuToggle.addEventListener("click", () => {
         const isOpen = siteNav.classList.toggle("open");
         menuToggle.setAttribute("aria-expanded", String(isOpen));
     });
+
     navLinks.forEach((link) => {
         link.addEventListener("click", () => {
             siteNav.classList.remove("open");
@@ -36,15 +29,14 @@ if (menuToggle && siteNav) {
     });
 }
 
-/* ═══════════════════════════════════════
-   TYPEWRITER
-═══════════════════════════════════════ */
 if (typedText) {
-    const roles = ["Web Developer", "Back End Developer", "PHP Developer"];
-    const typingSpeed  = 110;
+    const roles = ["Web Developer", "Back End Developer"];
+    const typingSpeed = 110;
     const erasingSpeed = 65;
-    const wordPause    = 1800;
-    let roleIndex = 0, charIndex = 0, isDeleting = false;
+    const wordPause = 1500;
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
 
     const typeRole = () => {
         const currentRole = roles[roleIndex];
@@ -60,109 +52,58 @@ if (typedText) {
         let nextDelay = isDeleting ? erasingSpeed : typingSpeed;
 
         if (!isDeleting && charIndex === currentRole.length) {
-            isDeleting  = true;
-            nextDelay   = wordPause;
+            isDeleting = true;
+            nextDelay = wordPause;
         } else if (isDeleting && charIndex === 0) {
-            isDeleting  = false;
-            roleIndex   = (roleIndex + 1) % roles.length;
-            nextDelay   = 350;
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            nextDelay = 350;
         }
 
         window.setTimeout(typeRole, nextDelay);
     };
 
     typedText.textContent = "";
-    window.setTimeout(typeRole, 500);
+    window.setTimeout(typeRole, 400);
 }
 
-/* ═══════════════════════════════════════
-   HEADER SCROLL SHADOW
-═══════════════════════════════════════ */
-if (header) {
-    const handleHeaderScroll = () => {
-        header.classList.toggle("scrolled", window.scrollY > 40);
-    };
-    window.addEventListener("scroll", handleHeaderScroll, { passive: true });
-}
-
-/* ═══════════════════════════════════════
-   ACTIVE NAV ON SCROLL
-═══════════════════════════════════════ */
-const sections = document.querySelectorAll("section[id]");
-const allNavLinks = document.querySelectorAll(".nav-link");
-
-const updateActiveNav = () => {
-    let current = "";
-    sections.forEach((section) => {
-        const sectionTop    = section.offsetTop - 160;
-        const sectionHeight = section.offsetHeight;
-        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-            current = section.id;
-        }
-    });
-    allNavLinks.forEach((link) => {
-        link.classList.toggle("active", link.dataset.section === current);
-    });
-};
-window.addEventListener("scroll", updateActiveNav, { passive: true });
-updateActiveNav();
-
-/* ═══════════════════════════════════════
-   SCROLL TO TOP BUTTON
-═══════════════════════════════════════ */
-if (scrollTopBtn) {
-    window.addEventListener("scroll", () => {
-        scrollTopBtn.classList.toggle("visible", window.scrollY > 400);
-    }, { passive: true });
-
-    scrollTopBtn.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-}
-
-/* ═══════════════════════════════════════
-   SCROLL REVEAL
-═══════════════════════════════════════ */
-const revealObserver = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    },
-    { threshold: 0.12 }
-);
-
-document.querySelectorAll(".reveal-up, .reveal-left, .reveal-right").forEach((el) => {
-    revealObserver.observe(el);
-});
-
-/* ═══════════════════════════════════════
-   ABOUT MODAL
-═══════════════════════════════════════ */
 if (aboutModal && openAboutModal && closeAboutModal) {
-    const toggleAboutModal = (shouldOpen) => {
+    const toggleModal = (shouldOpen) => {
         aboutModal.classList.toggle("open", shouldOpen);
         aboutModal.setAttribute("aria-hidden", String(!shouldOpen));
         document.body.style.overflow = shouldOpen ? "hidden" : "";
     };
 
-    openAboutModal.addEventListener("click", () => toggleAboutModal(true));
-    closeAboutModal.addEventListener("click", () => toggleAboutModal(false));
-    aboutModal.addEventListener("click", (e) => {
-        if (e.target === aboutModal) toggleAboutModal(false);
+    openAboutModal.addEventListener("click", () => {
+        toggleModal(true);
     });
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && aboutModal.classList.contains("open")) toggleAboutModal(false);
+
+    closeAboutModal.addEventListener("click", () => {
+        toggleModal(false);
+    });
+
+    aboutModal.addEventListener("click", (event) => {
+        if (event.target === aboutModal) {
+            toggleModal(false);
+        }
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && aboutModal.classList.contains("open")) {
+            toggleModal(false);
+        }
     });
 }
 
-/* ═══════════════════════════════════════
-   PROJECT MODAL
-═══════════════════════════════════════ */
-if (projectModal && closeProjectBtn && projectButtons.length > 0) {
+if (
+    projectModal &&
+    closeProjectModal &&
+    projectButtons.length > 0 &&
+    projectModalType &&
+    projectModalTitle &&
+    projectModalImage &&
+    projectModalDescription
+) {
     const toggleProjectModal = (shouldOpen) => {
         projectModal.classList.toggle("open", shouldOpen);
         projectModal.setAttribute("aria-hidden", String(!shouldOpen));
@@ -172,29 +113,34 @@ if (projectModal && closeProjectBtn && projectButtons.length > 0) {
     projectButtons.forEach((button) => {
         button.addEventListener("click", () => {
             const { projectType, projectTitle, projectImage, projectAlt, projectDescription } = button.dataset;
-            if (projectModalType)  projectModalType.textContent  = projectType;
-            if (projectModalTitle) projectModalTitle.textContent = projectTitle;
-            if (projectModalImage) {
-                projectModalImage.src = projectImage;
-                projectModalImage.alt = projectAlt;
-            }
-            if (projectModalDesc)  projectModalDesc.textContent  = projectDescription;
+
+            projectModalType.textContent = projectType;
+            projectModalTitle.textContent = projectTitle;
+            projectModalImage.src = projectImage;
+            projectModalImage.alt = projectAlt;
+            projectModalDescription.textContent = projectDescription;
+
             toggleProjectModal(true);
         });
     });
 
-    closeProjectBtn.addEventListener("click", () => toggleProjectModal(false));
-    projectModal.addEventListener("click", (e) => {
-        if (e.target === projectModal) toggleProjectModal(false);
+    closeProjectModal.addEventListener("click", () => {
+        toggleProjectModal(false);
     });
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && projectModal.classList.contains("open")) toggleProjectModal(false);
+
+    projectModal.addEventListener("click", (event) => {
+        if (event.target === projectModal) {
+            toggleProjectModal(false);
+        }
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && projectModal.classList.contains("open")) {
+            toggleProjectModal(false);
+        }
     });
 }
 
-/* ═══════════════════════════════════════
-   CONTACT FORM
-═══════════════════════════════════════ */
 if (contactForm && contactStatus) {
     contactForm.addEventListener("submit", (event) => {
         event.preventDefault();
@@ -204,12 +150,12 @@ if (contactForm && contactStatus) {
             return;
         }
 
-        const formData  = new FormData(contactForm);
-        const fullName  = String(formData.get("full_name") || "").trim();
-        const email     = String(formData.get("email") || "").trim();
-        const phone     = String(formData.get("phone") || "").trim();
-        const subject   = String(formData.get("subject") || "").trim();
-        const message   = String(formData.get("message") || "").trim();
+        const formData = new FormData(contactForm);
+        const fullName = String(formData.get("full_name") || "").trim();
+        const email = String(formData.get("email") || "").trim();
+        const phone = String(formData.get("phone") || "").trim();
+        const subject = String(formData.get("subject") || "").trim();
+        const message = String(formData.get("message") || "").trim();
 
         const emailSubject = `${subject} - ${fullName}`;
         const emailBody = [
